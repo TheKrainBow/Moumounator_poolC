@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 05:14:50 by magostin          #+#    #+#             */
-/*   Updated: 2020/01/29 10:41:39 by magostin         ###   ########.fr       */
+/*   Updated: 2020/01/29 11:27:26 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,26 +86,37 @@ void	my_print_comb(int fd)
 **	EX06
 */
 
-void	my_print_comb2(int fd)
+void	print(int a, int b, int fd)
 {
-	int		i;
-
-	i = -1;
-	while (++i <= 9899)
+	my_putchar('0' + a / 10, fd);
+	my_putchar('0' + a % 10, fd);
+	my_putchar(' ', fd);
+	my_putchar('0' + b / 10, fd);
+	my_putchar('0' + b % 10, fd);
+	if (a != 98 || b != 99)
 	{
-		if (i % 10000 / 1000 + i % 1000 / 100 < i % 100 / 10 + i % 10)
-		{
-			my_putchar((i % 10000 / 1000) + '0', fd);
-			my_putchar((i % 1000 / 100) + '0', fd);
-			my_putchar(' ', fd);
-			my_putchar((i % 100 / 10) + '0', fd);
-			my_putchar((i % 10 + '0'), fd);
-			if (i != 9899)
-				write(fd, ", ", 2);
-		}
+		my_putchar(',', fd);
+		my_putchar(' ', fd);
 	}
 }
 
+void	my_print_comb2(int fd)
+{
+	int a;
+	int b;
+
+	a = 0;
+	while (a <= 98)
+	{
+		b = a + 1;
+		while (b <= 99)
+		{
+			print(a, b, fd);
+			b++;
+		}
+		a++;
+	}
+}
 /*
 **	EX07
 */

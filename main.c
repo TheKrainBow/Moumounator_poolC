@@ -6,7 +6,7 @@
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 08:08:00 by magostin          #+#    #+#             */
-/*   Updated: 2020/01/29 11:06:33 by magostin         ###   ########.fr       */
+/*   Updated: 2020/01/29 11:43:12 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		ft_comparelines(char *s1, char *s2)
 	int		i = 0;
 
 	if (!s1 || !s2)
-		return (0);
+		return ((!s1 && !s2) ? 1 : 0);
 	while (s1[i] && s2[i])
 	{
 		if (s1[i] != s2[i])
@@ -207,29 +207,6 @@ int		ft_test_i_s(int (*f_user)(char *), int (*f_f)(char *))
 	return (ret);
 }
 
-void	ft_day00(void)
-{
-	printf( BOLDWHITE "C00:\n" RESET);
-	printf("ft_putchar:	");
-	ft_test_v_i(&ft_putchar, &my_putchar, 0, 100, 1) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
-	printf("ft_print_alphabet:");
-	ft_test_v_v(&ft_print_alphabet, &my_print_alphabet) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
-	printf("ft_print_alphabet:");
-	ft_test_v_v(&ft_print_reverse_alphabet, &my_print_reverse_alphabet) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
-	printf("ft_print_numbers:");
-	ft_test_v_v(&ft_print_numbers, &my_print_numbers) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
-	printf("ft_is_negative:	");
-	ft_test_v_i(&ft_is_negative, &my_is_negative, 0, 100, 10) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
-	printf("ft_print_comb:	");
-	ft_test_v_v(&ft_print_comb, &my_print_comb) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
-	printf("ft_print_comb2:	");
-	ft_test_v_v(&ft_print_comb2, &my_print_comb2) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
-	printf("ft_putnbr:	");
-	(ft_test_v_i(&ft_putnbr, &my_putnbr, -100, 100, 1) && ft_test_v_i(&ft_putnbr, &my_putnbr, -2147483648, -2147483647, 1)) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
-	printf("ft_print_combn:	");
-	ft_test_v_i(&ft_print_combn, &my_print_combn, 1, 10, 1) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
-}
-
 int		ft_test_ft_ft(int test)
 {
 	int		a = -123456;
@@ -364,29 +341,53 @@ int		ft_test_int_tab(void (*f_user)(int *, int), void (*f_f)(int *, int))
 			printf("}\n");
 			return (0);
 		}
+		i++;
 	}
+}
+
+void	ft_day00(void)
+{
+	printf( BOLDWHITE "C00:\n" RESET);
+	printf("ft_putchar:	");
+	ft_test_v_i(&ft_putchar, &my_putchar, 0, 100, 1) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
+	printf("ft_print_alphabet:");
+	ft_test_v_v(&ft_print_alphabet, &my_print_alphabet) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
+	printf("ft_print_alphabet:");
+	ft_test_v_v(&ft_print_reverse_alphabet, &my_print_reverse_alphabet) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
+	printf("ft_print_numbers:");
+	ft_test_v_v(&ft_print_numbers, &my_print_numbers) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
+	printf("ft_is_negative:	");
+	ft_test_v_i(&ft_is_negative, &my_is_negative, 0, 100, 10) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
+	printf("ft_print_comb:	");
+	ft_test_v_v(&ft_print_comb, &my_print_comb) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
+	printf("ft_print_comb2:	");
+	ft_test_v_v(&ft_print_comb2, &my_print_comb2) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
+	printf("ft_putnbr:	");
+	(ft_test_v_i(&ft_putnbr, &my_putnbr, -100, 100, 1) && ft_test_v_i(&ft_putnbr, &my_putnbr, -2147483648, -2147483647, 1)) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
+	printf("ft_print_combn:	");
+	ft_test_v_i(&ft_print_combn, &my_print_combn, 1, 10, 1) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
 }
 
 void	ft_day01(void)
 {
 	printf( BOLDWHITE "C01:\n" RESET);
-	printf("ft_ft:		");
+	printf("ft_ft:			");
 	ft_test_ft_ft(1) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
 	printf("ft_ultimate_ft:		");
 	ft_test_ft_ft(2) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
-	printf("ft_ft:		");
+	printf("ft_ft:			");
 	ft_test_div_swap(1) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
 	printf("ft_div_mod:		");
 	ft_test_div_swap(2) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
-	printf("ft_ultimate_div_mod:		");
+	printf("ft_ultimate_div_mod:	");
 	ft_test_div_swap(3) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
-	printf("ft_putstr:				");
+	printf("ft_putstr:		");
 	ft_test_v_s(&ft_putstr, &my_putstr) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
-	printf("ft_strlen:				");
+	printf("ft_strlen:		");
 	ft_test_i_s(&ft_strlen, &my_strlen) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
-	printf("ft_rev_int_tab:				");
+	printf("ft_rev_int_tab:		");
 	ft_test_int_tab(&ft_rev_int_tab, &my_rev_int_tab) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
-	printf("ft_rev_int_tab:				");
+	printf("ft_sort_int_tab:	");
 	ft_test_int_tab(&ft_sort_int_tab, &my_sort_int_tab) ? printf( BOLDGREEN "\t[OK]\n" RESET) : printf( BOLDRED "\t[KO]\n" RESET);
 }
 

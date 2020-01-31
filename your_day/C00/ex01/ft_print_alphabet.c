@@ -1,18 +1,13 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/29 09:02:48 by magostin          #+#    #+#             */
-/*   Updated: 2020/01/29 10:44:33 by magostin         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include <unistd.h>
 
-#include <stdio.h>
-
-void	ft_print_alphabet()
+void ft_print_alphabet(void)
 {
-	return ;
+	char c;
+
+	c = 'a';
+	while (c <= 'z')
+	{
+		write(1, &c, 1);
+		c++;
+	}
 }

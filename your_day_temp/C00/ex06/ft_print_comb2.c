@@ -1,29 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/29 11:30:56 by magostin          #+#    #+#             */
-/*   Updated: 2020/01/29 11:33:04 by magostin         ###   ########.fr       */
+/*   Created: 2020/01/29 10:53:34 by magostin          #+#    #+#             */
+/*   Updated: 2020/01/29 10:53:45 by magostin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-void ft_rev_int_tab(int *tab, int size)
+void	ft_print_comb2(void)
 {
-	int	i;
-	int	temp;
-
-	i = 0;
-	while (i < size)
-	{
-		temp = tab[i];
-		tab[i] = tab[size - 1];
-		tab[size - 1] = temp;
-		i++;
-		size--;
-	}
+	return ;
 }

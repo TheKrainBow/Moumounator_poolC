@@ -1,18 +1,13 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/29 10:43:06 by magostin          #+#    #+#             */
-/*   Updated: 2020/01/29 10:44:40 by magostin         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include <unistd.h>
 
-#include <stdio.h>
-
-void	ft_print_reverse_alphabet(void)
+void ft_print_reverse_alphabet(void)
 {
-	return ;
+	char c;
+
+	c = 'z';
+	while (c >= 'a')
+	{
+		write(1, &c, 1);
+		c--;
+	}
 }

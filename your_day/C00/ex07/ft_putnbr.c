@@ -1,16 +1,30 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/29 10:52:56 by magostin          #+#    #+#             */
-/*   Updated: 2020/01/29 10:54:31 by magostin         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include <unistd.h>
 
-void	ft_putnbr(int nb)
+void ft_putcchar(char c)
 {
-	(void)nb;
+	write(1, &c, 1);
+}
+
+void ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
+		write(1, "-2147483648", 11);
+	else
+	{
+		if (nb > 9)
+		{
+			ft_putnbr(nb / 10);
+			ft_putnbr(nb % 10);
+		}
+		else if (nb < 0)
+		{
+			nb *= -1;
+			ft_putcchar('-');
+			ft_putnbr(nb);
+		}
+		else
+		{
+			ft_putcchar(nb + '0');
+		}
+	}
 }

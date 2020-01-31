@@ -1,19 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_div_mod.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: magostin <magostin@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/29 10:58:05 by magostin          #+#    #+#             */
-/*   Updated: 2020/01/29 10:58:40 by magostin         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-void	ft_div_mod(int a, int b, int *div, int *mod)
+void ft_div_mod(int a, int b, int *div, int *mod)
 {
-	(void)a;
-	(void)b;
-	(void)div;
-	(void)mod;
+    *div = a / b;
+    *mod = a % b;
 }
